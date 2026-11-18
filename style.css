@@ -130,6 +130,8 @@ img, svg { display: block; }
   color: var(--orange); opacity: 0;
 }
 .hero-line-mask { display: block; overflow: hidden; padding-top: .04em; margin-top: -.04em; }
+/* SplitText names its masks "hero-mask-line-mask": give Anton's tall glyphs room so the mask doesn't crop them */
+.hero-heading > * { padding: .06em 0 .04em; margin: -.06em 0 -.04em; }
 
 .hero-pill {
   position: absolute; z-index: 4;
@@ -341,7 +343,7 @@ img, svg { display: block; }
   .work-item { height: 60svh; }
   .work-heading { font-size: 12.5vw; white-space: normal; }
   .work-heading > :first-child { padding-left: 0; }
-  .work-pill-1 { left: 44%; top: calc(110px + 10vw); } .work-pill-2 { left: 4%; top: calc(110px + 31vw); }
+  .work-pill-1 { left: auto; right: 3vw; top: calc(110px + 3vw); } .work-pill-2 { left: auto; right: 3vw; top: calc(110px + 54vw); }
   .work-hero-para { left: 18px; right: 18px; bottom: 30vh; }
   .work-cat { width: 40vw; bottom: 2vh; left: 4vw !important; }
 }
@@ -471,6 +473,51 @@ img, svg { display: block; }
   .nav-logo { font-size: 18px; justify-self: center; }
   .talk-btn-text { display: none; }
   .talk-btn { padding: 0 3px; }
+}
+
+/* ================= PHONES ================= */
+@media (max-width: 600px) {
+  /* hero: headline wraps to GOING / SUSPICIOUSLY / VIRAL, pills sit beside the short words */
+  .hero { height: 100svh; min-height: 620px; }
+  .hero-heading-wrap { padding-top: 104px; }
+  .hero-heading { font-size: 17.5vw; line-height: .92; padding: 0 2vw; }
+  .hero-pill { padding: 7px 14px; font-size: 13px; }
+  .hero-pill-a { left: auto; right: 1vw; top: calc(104px - 2vw); rotate: 6deg; }
+  .hero-pill-b { left: 3vw; top: calc(104px + 33vw); rotate: -8deg; }
+  .hero-pill-c { left: auto; right: 2vw; top: calc(104px + 36vw); rotate: -5deg; }
+  .hero-swirl-left { top: auto; bottom: 46vh; width: 20vw; }
+  .hero-swirl-right { top: 44vh; width: 20vw; }
+  .walker-man { width: 50vw; }
+  .walker-woman { width: 64vw; margin-left: -10vw; }
+  .cat { width: 26vw; }
+
+  /* about: pills frame the paragraph instead of covering it */
+  .about-pill-1 { left: auto; right: 5%; top: auto; bottom: 4%; rotate: 6deg; }
+  .about-pill-2 { right: auto; left: 6%; top: auto; bottom: 10%; }
+
+  /* "we could keep going": pills above and below the text, not over it */
+  .projects-end { padding-top: 14vh; }
+  .projects-end-inner { padding: 64px 0 70px; }
+  .projects-end-para { font-size: 13vw; }
+  .projects-pill { padding: 7px 14px; font-size: 14px; }
+  .projects-pill-1 { left: 4%; top: 6px; }
+  .projects-pill-3 { right: 4%; left: auto; top: 22px; }
+  .projects-pill-2 { left: 18%; bottom: 8px; top: auto; }
+  .project-btn { margin-top: 3vh; }
+
+  /* services: less dead air between blocks */
+  .svc-blocks { gap: 110px; }
+  .svc-para { font-size: 15px; padding: 12px 18px; max-width: 290px; }
+
+  .faq { padding: 12vh 6vw; }
+  .faq-list { margin-top: 5vh; }
+  .footer { padding-top: 14vh; }
+  .footer-heading { font-size: 15vw; }
+  .footer-grid { margin-top: 10vh; gap: 28px 16px; }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+  .talk-btn-big { padding: 0 6px 0 30px; }
+  .talk-btn-big .talk-btn-text { display: inline; }
+  .footer-bottom { flex-direction: column; gap: 8px; align-items: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
